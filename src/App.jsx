@@ -55,6 +55,7 @@ function App() {
           <Route path="/signin" element={<Signin isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />} />
           {/* <Route path="/dashboard" element={isLoggedIn? <Dashboard  setIsLoggedIn={setIsLoggedIn}/> : <Signin isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}  /> } > */}
           <Route path="/dashboard" element={isLoggedIn? <Dashboard  setIsLoggedIn={setIsLoggedIn}/> : <Navigate to="/signin" />} />
+          <Route path="/" element={ <Navigate to="/dashboard" />} />
           <Route path="/send" element={<SendMoney />} />
           {/* <Route path="/" element={<Toastcheck />} /> */}
         </Routes>
