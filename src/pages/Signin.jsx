@@ -7,20 +7,20 @@ import { SubHeading } from "../components/SubHeading"
 import { ToastContainer, toast } from "react-toastify"
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
-
+import { URL } from "../../config"
 export const Signin = ({isLoggedIn , setIsLoggedIn}) => {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const navigate = useNavigate()
   const handleSignin = async () => {
-    
+    // console.log('url ' , URL.LOCAL_URL);
     if(username.length == 0 || password.length == 0){
       toast.error("Please enter username and password ")
     }
     else {
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/v1/user/signin",
+          URL.LOCAL_URL + "api/v1/user/signin",
           {
             username,
             password,

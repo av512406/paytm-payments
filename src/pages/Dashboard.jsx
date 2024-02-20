@@ -3,7 +3,7 @@ import { Appbar } from "../components/Appbar"
 import { Balance } from "../components/Balance"
 import { Users } from "../components/Users"
 import axios from "axios"
-
+import { URL } from "../../config"
 export const Dashboard = ({setIsLoggedIn}) => {
     const [balance , setBalance] = useState(0) ;
 
@@ -11,7 +11,7 @@ export const Dashboard = ({setIsLoggedIn}) => {
         async function fetchbalance(){
             try {
                 const token = localStorage.getItem("token") ;
-                const res  = await axios.get("http://localhost:3000/api/v1/account/balance" , {
+                const res  = await axios.get(URL.LOCAL_URL + "api/v1/account/balance" , {
                     headers:{
                         Authorization: `Bearer ${token}`
                     }

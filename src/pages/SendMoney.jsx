@@ -2,7 +2,7 @@ import { Navigate, useNavigate, useSearchParams } from 'react-router-dom';
 import axios from "axios";
 import { useState } from 'react';
 import { ToastContainer, toast } from "react-toastify"
-
+import { URL } from '../../config';
 export const SendMoney = () => {
     const [searchParams] = useSearchParams();
     const id = searchParams.get("id");
@@ -29,7 +29,7 @@ export const SendMoney = () => {
                     <div className="space-y-2">
                     <label
                         className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        for="amount"
+                        // for="amount"
                     >
                         Amount (in Rs)
                     </label>
@@ -46,7 +46,7 @@ export const SendMoney = () => {
                     <button onClick={ async() => {
                         // toast.success("Button Clicked")
                         try {
-                            const res = await axios.post("http://localhost:3000/api/v1/account/transfer", {
+                            const res = await axios.post(URL.LOCAL_URL+"api/v1/account/transfer", {
                                 to: id,
                                 amount
                             }, {
